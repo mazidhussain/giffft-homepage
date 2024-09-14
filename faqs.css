@@ -49,7 +49,7 @@ body {
 }
 
 .accordion-item .icon::before {
-    transform: scale(1.5);
+    transform: scale(18);
     content: '+';
 }
 
