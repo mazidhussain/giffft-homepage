@@ -11,64 +11,48 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     text-align: center;
-    padding: 20px;
+    padding: 82px 40px;
 }
 
-.container h1{
+.heading {
     height: 80px;
+    margin-bottom: 36px;
 }
 
-.accordion-body {
-    display: none;
-    padding: 20px;
-    font-family: "Inter", "Inter Placeholder", sans-serif;
-    font-weight: 600;
-    letter-spacing: 0px;
-    line-height: 1.5em;
-    text-align: left;
-    color: #ffffff80;
-    max-height: 0; /* Initial height for animation */
-    overflow: hidden; /* Hide overflow */
-    transition: max-height 0.3s ease-out; /* Smooth transition */
-}
-
-.accordion-item.active .accordion-body {
-    display: block;
-    max-height: 500px; /* Adjust this value as needed */
-}
-
-.accordion-item.active .icon::before {
-    transform: scale(1.5);
-    content: 'x';
-}
-
-.accordion-item .icon::before {
-    transform: scale(18);
-    content: '+';
-}
-
-h1 {
+.heading h1 {
+    margin-top: 22px;
     font-size: 50px;
     font-weight: 400;
-    margin-bottom: 50px;
+    letter-spacing: -2.6px;
 }
 
 .accordion {
     width: 100%;
     max-width: 1000px;
-    border-radius: 20px;
-    overflow: hidden;
+}
+
+.accordion-item:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.accordion-item:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .accordion-item {
     background-color: #1d1830;
     overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .accordion-header {
@@ -85,7 +69,44 @@ h1 {
 }
 
 .icon {
-    font-size: 24px;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon::before,
+.icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #615e6f;
+    transition: transform 0.3s ease;
+}
+
+.icon::before {
+    transform: rotate(0deg);
+}
+
+.icon::after {
+    transform: rotate(90deg);
+}
+
+.accordion-body {
+    max-height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 1.5em;
+    text-align: left;
+    color: #ffffff80;
+    margin-bottom: 10px;
 }
 
 .accordion-body p {
@@ -96,6 +117,19 @@ h1 {
     text-align: left;
 }
 
+.accordion-item.active .accordion-body {
+    max-height: 500px;
+}
+
+.accordion-item.active .icon::before {
+    transform: rotate(45deg);
+}
+
+.accordion-item.active .icon::after {
+    transform: rotate(135deg);
+}
+
+/* Dynamic Circle */
 #dynamicCircle {
     position: fixed;
     top: 0;
@@ -112,7 +146,6 @@ h1 {
 }
 
 /* Media Queries for Responsiveness */
-
 @media (max-width: 768px) {
     h1 {
         font-size: 36px;
@@ -124,7 +157,8 @@ h1 {
     }
 
     .icon {
-        font-size: 20px;
+        width: 20px;
+        height: 20px;
     }
 
     .accordion-body p {
@@ -138,21 +172,27 @@ h1 {
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
+    .heading h1 {
+        font-size: 32px;
+        margin-bottom: 22px;
+    }
+
+    .accordion {
+        text-align: left;
+        line-height: 1.5;
     }
 
     .accordion-header {
-        padding: 18px;
+        padding: 24px;
     }
 
     .accordion-header span {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .icon {
-        font-size: 22px;
+        width: 14px;
+        height: 14px;
     }
 
     .accordion-body p {
