@@ -1,10 +1,14 @@
 body {
     margin: 0;
     padding: 41px 75px;
-    height: 100vh;
     background-color: #161226;
     color: white;
     font-family: "Questrial", sans-serif;
+}
+
+.homepage {
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -70,7 +74,7 @@ h2 {
     font-size: 20px;
     text-align: center;
     color: #c2bdcb;
-    margin-bottom: 93px;
+    margin-bottom: 63px;
 }
 
 .description .first {
@@ -91,7 +95,7 @@ h2 {
 .store-buttons {
     margin-right: 3px;
     display: flex;
-    gap: 27px;
+    gap: 31px;
 }
 
 .store-buttons img {
@@ -328,11 +332,13 @@ h2 {
     .description {
         line-height: 22px;
         font-size: 18px;
+        margin-bottom: 93px;
     }
 
     .store-buttons {
         flex-direction: column;
         margin: 0;
+        gap: 27px;
     }
 
     .circle-left {
