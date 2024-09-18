@@ -157,6 +157,10 @@ h2 {
     max-width: 1000px;
 }
 
+.ques {
+    font-weight: 600;
+}
+
 .accordion-item:first-child {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
