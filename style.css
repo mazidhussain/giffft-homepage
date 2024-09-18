@@ -25,7 +25,7 @@ body {
 }
 
 .faq-link a {
-    color: #c5c4c9;
+    color: #c2bdcb;
     text-decoration: none;
     font-size: 20px;
     line-height: 24px;
@@ -62,7 +62,7 @@ h2 {
     flex-direction: column;
     font-size: 20px;
     text-align: center;
-    color: #c5c4c9;
+    color: #c2bdcb;
     margin-bottom: 63px;
 }
 
@@ -104,11 +104,13 @@ h2 {
 .circle-left {
     bottom: 150px;
     left: -150px;
+    z-index: -9999999;
 }
 
 .circle-right {
     top: -150px;
     right: -100px;
+    z-index: -9999999;
 }
 
 .background-circle {
@@ -130,6 +132,122 @@ h2 {
     background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20viewBox%3D%220%200%20410%20410%22%3E%3Cg%3E%3Cdefs%3E%3CradialGradient%20id%3D%22idss11711836158_1g-739207416%22%20cy%3D%220.5%22%20cx%3D%220.5%22%20r%3D%220.5%22%20gradientTransform%3D%22translate(0.5%2C%200.5)%20scale(1%201)%20translate(-0.5%2C%20-0.5)%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22rgba(17%2C%200%2C%20255%2C%200.37)%22%20stop-opacity%3D%220.37%22%3E%3C%2Fstop%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22rgba(72%2C%200%2C%20255%2C%200)%22%20stop-opacity%3D%220%22%3E%3C%2Fstop%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M%20201%200%20C%20312.009%200%20402%2089.991%20402%20201%20C%20402%20312.009%20312.009%20402%20201%20402%20C%2089.991%20402%200%20312.009%200%20201%20C%200%2089.991%2089.991%200%20201%200%20Z%22%20fill%3D%22url(%23idss11711836158_1g-739207416)%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E');
 }
 
+
+.heading {
+    height: 80px;
+    margin-bottom: 36px;
+}
+
+.heading h1 {
+    margin-top: 22px;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: -2.6px;
+}
+
+.accordion {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.accordion-item:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.accordion-item:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.accordion-item {
+    background-color: #1d1830;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.accordion-header span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon::before,
+.icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #615e6f;
+    transition: transform 0.3s ease;
+}
+
+.icon::before {
+    transform: rotate(0deg);
+}
+
+.icon::after {
+    transform: rotate(90deg);
+}
+
+.accordion-body {
+    max-height: 0;
+    padding: 0 20px;
+    margin-bottom: -10px;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: 1.5em;
+    text-align: left;
+    color: #ffffff80;
+    margin-bottom: 10px;
+}
+
+.accordion-body p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #8e8c98;
+    margin-top: -15px;
+    text-align: left;
+}
+
+.accordion-item.active .accordion-body {
+    max-height: 500px;
+}
+
+.accordion-item.active .icon::before {
+    transform: rotate(45deg);
+}
+
+.accordion-item.active .icon::after {
+    transform: rotate(135deg);
+}
+
 #dynamicCircle {
     position: fixed;
     top: 0;
@@ -146,6 +264,24 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .accordion-header span {
+        font-size: 14px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .accordion-body p {
+        font-size: 14px;
+    }
+
     body {
         padding: 40px 30px;
     }
@@ -183,5 +319,34 @@ h2 {
 
     .android {
         margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading h1 {
+        font-size: 32px;
+        margin-bottom: 22px;
+    }
+
+    .accordion {
+        text-align: left;
+        line-height: 1.5;
+    }
+
+    .accordion-header {
+        padding: 24px;
+    }
+
+    .accordion-header span {
+        font-size: 16px;
+    }
+
+    .icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .accordion-body p {
+        font-size: 14px;
     }
 }
