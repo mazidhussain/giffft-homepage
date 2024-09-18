@@ -5,10 +5,17 @@ body {
     background-color: #161226;
     color: white;
     font-family: "Questrial", sans-serif;
-    overflow: hidden;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.faq-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,7 +70,7 @@ h2 {
     font-size: 20px;
     text-align: center;
     color: #c2bdcb;
-    margin-bottom: 63px;
+    margin-bottom: 93px;
 }
 
 .description .first {
@@ -84,7 +91,7 @@ h2 {
 .store-buttons {
     margin-right: 3px;
     display: flex;
-    gap: 31px;
+    gap: 27px;
 }
 
 .store-buttons img {
@@ -135,7 +142,7 @@ h2 {
 
 .heading {
     height: 80px;
-    margin-bottom: 36px;
+    margin-bottom: 58px;
 }
 
 .heading h1 {
@@ -264,13 +271,29 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    .faq-container {
+        padding: 0;
+    }
+
     h1 {
         font-size: 36px;
         margin-bottom: 30px;
     }
 
+    .main {
+        margin-bottom: 30px;
+    }
+
     .accordion-header span {
         font-size: 14px;
+    }
+
+    .ques {
+        width: 90%;
+    }
+
+    .logo {
+        margin-bottom: -3px;
     }
 
     .icon {
@@ -283,7 +306,7 @@ h2 {
     }
 
     body {
-        padding: 40px 30px;
+        padding: 41px 29px;
     }
 
     .container {
@@ -299,6 +322,7 @@ h2 {
     }
 
     .description {
+        line-height: 22px;
         font-size: 18px;
     }
 
@@ -319,6 +343,11 @@ h2 {
 
     .android {
         margin-top: -20px;
+    }
+
+    .secondary {
+        display: inline;
+        margin-top: 10px;
     }
 }
 
